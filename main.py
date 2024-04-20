@@ -2,9 +2,11 @@ from Controller.Controller import Controller
 
 controller = Controller(10)
 
+counter = 0
 controller.aceptacion()
-
-controller.showDetails()
-
-print("Vallue of all aceptation is: "+str(controller.getSumAceptation()))
-
+while controller.itsTheBest():
+    controller.aceptacion()
+    controller.selectFathers()
+    controller.mix(counter)
+    counter += 1
+    print(f'Interaction: {counter}, best aceptation is: {controller.showBestPoblation()}')
